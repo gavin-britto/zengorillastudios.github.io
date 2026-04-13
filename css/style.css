@@ -57,7 +57,7 @@ a:hover, a.active{
   position: relative;
   width: 100%;
   min-height: 600px;   
-  background-image: url('img/clouds.png');
+  background-image: url('../img/clouds.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -88,6 +88,6 @@ a:hover, a.active{
 
 @media (max-width: 576px) {
   .container {
-    min-height: 440px;
+    min-height: 460px;
   }
 }
