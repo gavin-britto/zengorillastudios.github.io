@@ -3,3 +3,91 @@
     display: flex;
     width: 100%;
 }
+
+
+body {
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    color: #262421;
+    font-family: "Nova Flat";
+    font-weight: 300;
+    font-style: normal;
+    background-color: black
+}
+
+.nav {
+    font-size: 1.2em;
+    width: 90%;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    justify-content: space-between;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1;
+    padding-bottom: 5px;
+}
+
+.nav-main {
+    font-size: 2em;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1; 
+}
+
+.nav-link active{
+    color: #FFF2F2;
+}
+
+.nav-link{
+    color: #787474;
+    display: flex;
+    align-items: flex-end;
+    line-height: 1; 
+}
+
+a:hover, a.active{
+    color:  #FFF2F2;
+    text-decoration: none;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 600px;   
+  background-image: url('/img/clouds.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-left: 0%;
+}
+
+.container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  right: 0;
+  color: white;
+  padding: 10px 20px;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 30%; /* Position from the top */
+  color: white;
+  padding: 10px;
+}
+
+@media (max-width: 576px) {
+  .container {
+    min-height: 440px;
+  }
+}
