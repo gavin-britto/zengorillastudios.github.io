@@ -59,7 +59,7 @@ a:hover, a.active{
   min-height: 600px;   
   background-image: url('../img/clouds.png');
   background-size: cover;
-  background-position: center;
+  background-position: left;
   background-repeat: no-repeat;
   margin-left: 0%;
 }
@@ -81,13 +81,14 @@ a:hover, a.active{
     box-sizing: border-box;
 }
 
-.text-overlay {
-  position: absolute;
-  top: 30%; /* Position from the top */
-  color: white;
-  padding: 10px;
+.text-overlay h1 {
+  margin-bottom: 1.5rem;
 }
 
+.text-overlay p {
+    color: #E0DCDC;
+}
+ 
 
 .contact-container {
     margin-top: 5rem;
@@ -99,12 +100,12 @@ a:hover, a.active{
     padding: 1rem;
     font-size: 1.1rem;
     cursor: pointer;
-    color: white;
+    color: #E0DCDC;
 }
 
 @media (max-width: 576px) {
   .container {
-    min-height: 500px;
+    min-height: 550px;
   }
 }
 
