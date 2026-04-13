@@ -71,12 +71,14 @@ a:hover, a.active{
 }
 
 .text-overlay {
-  position: absolute;
-  top: 30%;
-  left: 0;
-  right: 0;
-  color: white;
-  padding: 10px 20px;
+    position: absolute;
+    top: 30%;
+    color: white;
+    padding: 10px 5%;
+    left: 0;
+    right: 0;
+    max-width: 600px;
+    box-sizing: border-box;
 }
 
 .text-overlay {
@@ -86,8 +88,23 @@ a:hover, a.active{
   padding: 10px;
 }
 
+
+.contact-container {
+    margin-top: 5rem;
+}
+
+
+.contact-link {
+    display: block;
+    padding: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: white;
+}
+
 @media (max-width: 576px) {
   .container {
-    min-height: 460px;
+    min-height: 500px;
   }
 }
+
