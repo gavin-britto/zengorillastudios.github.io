@@ -102,10 +102,3 @@ a:hover, a.active{
     cursor: pointer;
     color: #E0DCDC;
 }
-
-@media (max-width: 576px) {
-  .container {
-    min-height: 550px;
-  }
-}
-
