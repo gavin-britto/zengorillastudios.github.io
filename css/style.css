@@ -28,6 +28,7 @@ body {
     align-items: flex-end;
     line-height: 1;
     padding-bottom: 5px;
+    background-color: black;
 }
 
 .nav-main {
@@ -90,6 +91,36 @@ a:hover, a.active{
 }
  
 
+.enter-world {
+    text-align: center;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.85;
+    }
+    50% {
+        transform: scale(1.07);
+        opacity: 1;
+    }
+}
+
+.enter-world a {
+    color: #E0DCDC;
+    font-family: "Nova Flat";
+    font-size: 2.5rem;
+    text-decoration: none;
+    display: inline-block;
+    animation: breathe 5s ease-in-out infinite;
+}
+
+.enter-world a:hover {
+    color: #FFF2F2;
+}
+
 .contact-container {
     margin-top: 5rem;
 }
@@ -118,7 +149,7 @@ a:hover, a.active{
     height: 330px;
     margin-bottom: 20px; /* Adds space between rows */
     margin-right: 10px;
-    color: #E0DCDC; 
+    color: #E0DCDC;
 }
 
 .card-title{
@@ -138,20 +169,111 @@ a:hover, a.active{
     background-color: #898920;
 }
 
+.card-expanded {
+    height: auto;
+    overflow: visible;
+    padding-bottom: 16px;
+}
+
 .card-frame {
     width: 90%;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 12px;
+}
+
+iframe.card-frame {
+    height: 160px;
 }
 
 .card-frame img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* fills the space without stretching */
+    object-fit: cover;
+}
+
+.card-expanded .card-frame img {
+    height: auto;
+}
+
+.world-container {
+    margin-top: 5rem;
+    color: white;
+}
+
+.world-title {
+    font-family: "Nova Flat";
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.guru-title {
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+.story-img-wrapper {
+    position: relative;
+    display: block;
+    max-width: 100%;
+    margin: 1.5rem auto 2rem;
+}
+
+.zeng-img-wrapper {
+    max-width: 70%;
+}
+
+.story-img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.img-credit {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    font-style: italic;
+    font-size: 0.65rem;
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 3px 6px;
+}
+
+.world-story {
+    margin-top: 3rem;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.world-story p {
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    color: #E0DCDC;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.story-quote {
+    font-style: italic;
+    color: #b0aaaa !important;
+    margin-bottom: 2rem !important;
 }
 
 @media (max-width: 576px) {
-  /* CSS rules for mobile devices go here */
+  .world-title {
+    font-size: 1.3rem;
+  }
+
+  .world-story p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
   .nav-main {
     font-size: 1.5rem;
   }
