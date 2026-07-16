@@ -214,6 +214,40 @@ iframe.card-frame {
     text-align: center;
 }
 
+.story-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 2.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.story-heading {
+    margin-top: 0;
+    margin-bottom: 0;
+    min-width: 16rem;
+    text-align: center;
+}
+
+.story-caret {
+    font-family: "Nova Flat";
+    font-size: 1.6rem;
+    line-height: 1;
+    color: white;
+    transition: transform 0.2s ease;
+    display: inline-block;
+}
+
+.story-header.open .story-caret {
+    transform: rotate(90deg);
+}
+
+.world-story.collapsed {
+    display: none;
+}
+
 .story-img-wrapper {
     position: relative;
     display: block;
@@ -266,6 +300,10 @@ iframe.card-frame {
 @media (max-width: 576px) {
   .world-title {
     font-size: 1.3rem;
+  }
+
+  .story-heading {
+    min-width: 11rem;
   }
 
   .world-story p {
