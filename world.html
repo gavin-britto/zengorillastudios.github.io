@@ -173,12 +173,97 @@
 
     <p style="margin-top: 2em; text-align: right;"><em><span style="font-size: 0.85em;">Prose by Gavin Britto</span></em></p>
   </div>
+
+  <!-- ============================================================ -->
+  <!-- NEWSLETTER SIGNUP                                            -->
+  <!-- ============================================================ -->
+  <div class="newsletter">
+    <button type="button" class="newsletter-btn" onclick="toggleNewsletter()">JOIN THE NEWSLETTER</button>
+
+    <form class="newsletter-form collapsed" id="newsletterForm" onsubmit="submitNewsletter(event)">
+      <p class="newsletter-blurb">Be the first to hear new stories from the World of Zen Gorilla.</p>
+      <!-- Honeypot: hidden from humans; bots tend to fill it. Must stay empty. -->
+      <input type="text" id="newsletterHp" class="newsletter-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="newsletter-fields">
+        <input type="email" id="newsletterEmail" class="newsletter-input" placeholder="your@email.com" required>
+        <button type="submit" class="newsletter-submit">Sign Up</button>
+      </div>
+      <p class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
 </div>
 
 <script>
   function toggleStory(header) {
     header.classList.toggle('open');
     header.nextElementSibling.classList.toggle('collapsed');
+  }
+
+  // ---- Newsletter signup ----
+  // Paste your Google Apps Script web app URL between the quotes below.
+  // See NEWSLETTER_SETUP.md for step-by-step instructions.
+  const NEWSLETTER_ENDPOINT = "https://script.google.com/macros/s/AKfycbx6TP3SPDEXnw8irCY5UcOs5LS0HR_Sgdy_ghvagDAH3ZcuD0tb3LWgBCe_IWXKefXN_w/exec";
+
+  function toggleNewsletter() {
+    const form = document.getElementById('newsletterForm');
+    form.classList.toggle('collapsed');
+    if (!form.classList.contains('collapsed')) {
+      document.getElementById('newsletterEmail').focus();
+    }
+  }
+
+  function submitNewsletter(event) {
+    event.preventDefault();
+    const status = document.getElementById('newsletterStatus');
+    const emailInput = document.getElementById('newsletterEmail');
+    const honeypot = document.getElementById('newsletterHp');
+    const submitBtn = event.target.querySelector('.newsletter-submit');
+    const email = emailInput.value.trim();
+
+    // Honeypot: only a bot fills the hidden field. Pretend success and drop it.
+    if (honeypot.value) {
+      status.textContent = "Thanks for subscribing!";
+      status.className = "newsletter-status success";
+      emailInput.value = "";
+      return;
+    }
+
+    // Basic email validation.
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      status.textContent = "Please enter a valid email address.";
+      status.className = "newsletter-status error";
+      return;
+    }
+
+    if (NEWSLETTER_ENDPOINT === "https://script.google.com/macros/s/AKfycbypeG6z-NUzEw_qcLsUcBnaCO21Q8NOhgJLutiCzMdc-MOUHQiRdZUnGhIK45ZdNk0AZQ/exec") {
+      status.textContent = "Newsletter isn't connected yet. (See NEWSLETTER_SETUP.md)";
+      status.className = "newsletter-status error";
+      return;
+    }
+
+    submitBtn.disabled = true;
+    status.textContent = "Signing you up…";
+    status.className = "newsletter-status";
+
+    fetch(NEWSLETTER_ENDPOINT, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ email: email, website: honeypot.value })
+    })
+    .then(function () {
+      status.textContent = "Thanks for subscribing!";
+      status.className = "newsletter-status success";
+      emailInput.value = "";
+    })
+    .catch(function () {
+      status.textContent = "Something went wrong. Please try again.";
+      status.className = "newsletter-status error";
+    })
+    .finally(function () {
+      submitBtn.disabled = false;
+    });
   }
 </script>
 

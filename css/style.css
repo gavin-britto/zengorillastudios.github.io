@@ -297,6 +297,118 @@ iframe.card-frame {
     margin-bottom: 2rem !important;
 }
 
+/* ---------- Newsletter signup ---------- */
+.newsletter {
+    text-align: center;
+    margin: 5rem auto 4rem;
+    max-width: 720px;
+}
+
+.newsletter-btn {
+    font-family: "Nova Flat";
+    font-size: 1.8rem;
+    color: #E0DCDC;
+    background: transparent;
+    border: 2px solid #787474;
+    border-radius: 4px;
+    padding: 0.6rem 1.8rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.newsletter-btn:hover {
+    color: #FFF2F2;
+    border-color: #FFF2F2;
+}
+
+.newsletter-form {
+    margin-top: 1.75rem;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.newsletter-form.collapsed {
+    display: none;
+}
+
+/* Honeypot: kept in the DOM for bots, hidden from real users. */
+.newsletter-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.newsletter-blurb {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    color: #b0aaaa;
+    margin-bottom: 1.25rem;
+}
+
+.newsletter-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.newsletter-input {
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #787474;
+    border-radius: 4px;
+    background: #1a1a1a;
+    color: #E0DCDC;
+    min-width: 260px;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: #FFF2F2;
+}
+
+.newsletter-submit {
+    font-family: "Nova Flat";
+    font-size: 1.1rem;
+    color: #E0DCDC;
+    background: transparent;
+    border: 2px solid #787474;
+    border-radius: 4px;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.newsletter-submit:hover {
+    color: #FFF2F2;
+    border-color: #FFF2F2;
+}
+
+.newsletter-submit:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.newsletter-status {
+    font-family: sans-serif;
+    font-size: 1rem;
+    color: #b0aaaa;
+    margin-top: 1rem;
+    min-height: 1.2em;
+}
+
+.newsletter-status.success {
+    color: #7ac77a;
+}
+
+.newsletter-status.error {
+    color: #d97a7a;
+}
+
 @media (max-width: 576px) {
   .world-title {
     font-size: 1.3rem;
